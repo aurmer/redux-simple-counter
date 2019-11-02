@@ -8,8 +8,22 @@
 </head>
 <body>
     <div class="app">
-        <h1 id="counterValue">0</h1>
-        <button id="increment">+1</button>
+        <button id="add-counter">ADD COUNTER</button>
+        <div class='counters-container'>
+          <div id="counter1">
+            <h1 class="counterValue">0</h1>
+            <button class="increment">+1</button>
+            <button class="add5">+5</button>
+            <button class="remove5">-5</button>
+            <select class="set-color">
+              <option>black</option>
+              <option>red</option>
+              <option>green</option>
+              <option>blue</option>
+            </select>
+            <button class="set-value">Set value</button>
+          </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>

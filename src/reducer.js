@@ -1,13 +1,36 @@
 const initialState = {
-    value: 0
+    value: 0,
+    color: 'black'
 }
 
-const reducer = (state = initialState, action) => {
-    let { type } = action;
-    if (type === "INCREMENT") {
-        return {
-            value: state.value + 1
-        }
+function deepCopy (x) {
+  return JSON.parse(JSON.stringify(x))
+}
+
+const reducer = (currentState, action) => {
+    // first run; set initial state
+    if (!currentState) {
+      return deepCopy(initialState)
     }
-    return state
+
+    let nextState = deepCopy(currentState)
+
+    const { type } = action;
+    if (type === "INCREMENT") {
+      nextState.value = nextState.value + 1
+    }
+    else if (type === "ADD_5") {
+      nextState.value = nextState.value + 5
+    }
+    else if (type === "REMOVE_5") {
+      nextState.value = nextState.value - 5
+    }
+    else if (type === "SET_COLOR") {
+      nextState.color = action.color
+    }
+    else if (type === "SET_VALUE") {
+      nextState.value = action.newValue
+    }
+
+    return nextState
 }
